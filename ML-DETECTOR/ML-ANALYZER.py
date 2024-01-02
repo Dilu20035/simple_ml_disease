@@ -30,7 +30,7 @@ if st.button('Predict'):
 
     st.write(disease_model.describe_predicted_disease())
     st.text("")
-    st.title("Precautions:")
+    st.write("## Precautions:")
     precautions = disease_model.predicted_disease_precautions()
     for i in range(4):
         st.write(f'{i+1}. {precautions[i]}')
