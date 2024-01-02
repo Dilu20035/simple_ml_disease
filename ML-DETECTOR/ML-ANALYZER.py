@@ -4,10 +4,15 @@ from code.helper import prepare_symptoms_array
 
 # Create disease class and load ML model
 disease_model = DiseaseModel()
-disease_model.load_xgboost('../model/xgboost_model.json')
+disease_model.load_xgboost('model/xgboost_model.json')
 
 # Set page width to wide
 st.set_page_config(layout='wide')
+
+# Create sidebar
+st.sidebar.markdown('# Disease Prediction')
+st.sidebar.markdown("This web app uses a machine learning model to predict diseases based on a set of symptoms using Scikit-learn, Python and Streamlit.")
+st.sidebar.markdown("Author: Guillermo Chumaceiro")
 
 
 # Title
