@@ -4,7 +4,7 @@ from code.helper import prepare_symptoms_array
 
 # Create disease class and load ML model
 disease_model = DiseaseModel()
-disease_model.load_xgboost('model/xgboost_model.json')
+disease_model.load_xgboost('../model/xgboost_model.json')
 
 # Set page width to wide
 st.set_page_config(layout='wide')
