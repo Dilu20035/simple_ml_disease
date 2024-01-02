@@ -7,7 +7,7 @@ disease_model = DiseaseModel()
 disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')  # Replace with the correct model path
 
 # Set page width to wide
-st.set_page_config(layout='center')
+st.set_page_config(layout='collapsed')
 
 # Title
 st.write('# Disease Prediction using Machine Learning')
