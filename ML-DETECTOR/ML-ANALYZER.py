@@ -29,12 +29,12 @@ if st.button('Predict'):
     st.write(f'## Disease: {prediction} with {prob*100:.2f}% probability')
 
     # Display description and precautions in tabs
-    tab1, tab2= st.rows(2)
+    col1, col2 = st.beta_columns(2)
 
-    with tab1:
+    with col1:
         st.write(disease_model.describe_predicted_disease())
 
-    with tab2:
+    with col2:
         st.write('Precautions:')
         precautions = disease_model.predicted_disease_precautions()
         for i in range(4):
