@@ -17,7 +17,7 @@ test = pd.get_dummies(dataset_df.filter(regex='Symptom'), prefix='', prefix_sep=
 test = test.groupby(test.columns, axis=1).agg(np.max)
 clean_df = pd.merge(test,dataset_df['Disease'], left_index=True, right_index=True)
 
-clean_df.to_csv('../data/clean_dataset.tsv', sep='\t', index=False)
+clean_df.to_csv('data/clean_dataset.tsv', sep='\t', index=False)
 
 # Preprocessing
 X_data = clean_df.iloc[:,:-1]
@@ -49,4 +49,4 @@ preds = model.predict(X_test)
 print(f"The accuracy of the model is {accuracy_score(y_test, preds)}")
 
 # Export model
-model.save_model('../model/xgboost_model.json')
+model.save_model("model/xgboost_model.json")
