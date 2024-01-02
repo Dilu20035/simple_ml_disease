@@ -63,7 +63,7 @@ class DiseaseModel:
 
     def disease_list(self, kaggle_dataset):
 
-        df = pd.read_csv('data/clean_dataset.tsv', sep='\t')
+        df = pd.read_csv('/data/clean_dataset.tsv', sep='\t')
         # Preprocessing
         y_data = df.iloc[:,-1]
         X_data = df.iloc[:,:-1]
