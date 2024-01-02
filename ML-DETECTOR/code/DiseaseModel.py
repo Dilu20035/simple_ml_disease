@@ -9,7 +9,7 @@ class DiseaseModel:
         self.symptoms = None
         self.pred_disease = None
         self.model = xgb.XGBClassifier()
-        self.diseases = self.disease_list('../data//dataset.csv')
+        self.diseases = self.disease_list('../data/dataset.csv')
 
     def load_xgboost(self, model_path):
         self.model.load_model(model_path)
