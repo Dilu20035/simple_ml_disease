@@ -1,36 +1,35 @@
 import streamlit as st
-from code.DiseaseModel import DiseaseModel
-from code.helper import prepare_symptoms_array
+from code.DiseaseModel import DiseaseModel  # Ensure the correct import path
+from code.helper import prepare_symptoms_array  # Ensure the correct import path
 
 # Create disease class and load ML model
 disease_model = DiseaseModel()
-disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')
+disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')  # Replace with the correct model path
 
 # Set page width to wide
 st.set_page_config(layout='wide')
 
 # Create sidebar
 st.sidebar.markdown('# Disease Prediction')
-st.sidebar.markdown("This web app uses a machine learning model to predict diseases based on a set of symptoms using Scikit-learn, Python and Streamlit.")
-st.sidebar.markdown("Author: Guillermo Chumaceiro")
-
+# ... (sidebar content)
 
 # Title
 st.write('# Disease Prediction using Machine Learning')
 
+# Get symptoms from user input
 symptoms = st.multiselect('What are your symptoms?', options=disease_model.all_symptoms)
 
-X = prepare_symptoms_array(symptoms)
+X = prepare_symptoms_array(symptoms)  # Assuming prepare_symptoms_array handles symptom data
 
 # Trigger XGBoost model
 if st.button('Predict'): 
-    # Run the model with the python script
+    # Run the model prediction
+    prediction, prob = disease_model.predict(X)  # Assuming predict() returns prediction and probability
     
-    prediction, prob = disease_model.predict(X)
     st.write(f'## Disease: {prediction} with {prob*100:.2f}% probability')
 
-
-    tab1, tab2= st.tabs(["Description", "Precautions"])
+    # Display description and precautions in tabs
+    tab1, tab2 = st.columns(2)
 
     with tab1:
         st.write(disease_model.describe_predicted_disease())
