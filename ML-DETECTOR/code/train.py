@@ -5,28 +5,27 @@ from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 import xgboost as xgb
 
-# Machine learning model: XGBoost 
-
 # import the dataset
 dataset_df = pd.read_csv('ML-DETECTOR/data/dataset.csv')
 
 # Preprocess
 dataset_df = dataset_df.apply(lambda col: col.str.strip())
 
+# One-hot encode symptoms
 test = pd.get_dummies(dataset_df.filter(regex='Symptom'), prefix='', prefix_sep='')
 test = test.groupby(test.columns, axis=1).agg(np.max)
-clean_df = pd.merge(test,dataset_df['Disease'], left_index=True, right_index=True)
+clean_df = pd.merge(test, dataset_df['Disease'], left_index=True, right_index=True)
 
 clean_df.to_csv('ML-DETECTOR/data/clean_dataset.tsv', sep='\t', index=False)
 
 # Preprocessing
-X_data = clean_df.iloc[:,:-1]
-y_data = clean_df.iloc[:,-1]
+X_data = clean_df.iloc[:, :-1]
+y_data = clean_df.iloc[:, -1]
 
 # Convert y to categorical values
 y_data = y_data.astype('category')
 
-# Convert y categories tu numbers with encoder
+# Convert y categories to numbers with encoder
 le = preprocessing.LabelEncoder()
 le.fit(y_data)
 
@@ -46,7 +45,8 @@ model.fit(X_train, y_train)
 preds = model.predict(X_test)
 
 # Test accuracy
-print(f"The accuracy of the model is {accuracy_score(y_test, preds)}")
+accuracy = accuracy_score(y_test, preds)
+print(f"The accuracy of the model is {accuracy}")
 
 # Export model
 model.save_model("ML-DETECTOR/model/xgboost_model.json")
