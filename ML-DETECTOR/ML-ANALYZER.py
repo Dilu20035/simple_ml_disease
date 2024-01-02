@@ -27,9 +27,10 @@ if st.button('Predict'):
     prediction, prob = disease_model.predict(X)  # Assuming predict() returns prediction and probability
     
     st.write(f'## Disease: {prediction} with {prob*100:.2f}% probability')
-    st.text("")
-    st.write(disease_model.describe_predicted_disease())
 
+    st.write(disease_model.describe_predicted_disease())
+    st.text("")
+    st.title("Precautions:")
     precautions = disease_model.predicted_disease_precautions()
     for i in range(4):
         st.write(f'{i+1}. {precautions[i]}')
