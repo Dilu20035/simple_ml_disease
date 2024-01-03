@@ -1,8 +1,5 @@
 import streamlit as st
 from streamlit_chat import message
-from streamlit_option_menu import option_menu
-from streamlit_lottie import st_lottie
-import requests
 import os
 from dotenv import load_dotenv
 import openai
@@ -71,50 +68,6 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
-
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-
-
-
-
-lottie_coding = load_lottieurl("https://lottie.host/e8cca356-1ed3-4d6d-a263-377ffdbfae98/L1n9J2mGso.json")  # replace link to local lottie file
-
-
-with st.sidebar:   
-    selected = option_menu('',['MEDICAL-CHATBOT'],
-                          icons=['person'],
-                          default_index=0,
-                          
-                          )
-    st_lottie(
-                           lottie_coding,
-                           speed=1,
-                           reverse=False,
-                           loop=True,
-                           quality="low", # medium ; high
-                           height="250px",
-                           width="250px",
-                           key=None,
-                           )
-        
-
-
-code = """
-"https://multiplediseasedetector.streamlit.app/"
-"""
-
-# Display the code in the sidebar using markdown
-st.sidebar.markdown("```python\n{}\n```".format(code))
-
-# Execute the code and display its output in the sidebar
-with st.sidebar:
-    exec(code)
-
 
 def get_initial_message():
     messages=[
