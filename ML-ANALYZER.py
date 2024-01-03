@@ -74,7 +74,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Create disease class and load ML model
 disease_model = DiseaseModel()
-disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')  # Replace with the correct model path
+disease_model.load_xgboost('model/xgboost_model.json')  # Replace with the correct model path
 
 st.sidebar.write('Disease Prediction using Machine Learning')
 # Title
