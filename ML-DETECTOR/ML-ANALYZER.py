@@ -73,8 +73,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 disease_model = DiseaseModel()
 disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')  # Replace with the correct model path
 
-# Set page width to wide
-st.set_page_config(layout='centered')
 
 # Title
 st.write('# Disease Prediction using Machine Learning')
