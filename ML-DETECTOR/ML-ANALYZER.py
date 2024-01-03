@@ -99,6 +99,3 @@ if st.button('Predict'):
     for i in range(4):
         st.write(f'{i+1}. {precautions[i]}')
 
-
-if __name__ == "__main__":
-    main()
