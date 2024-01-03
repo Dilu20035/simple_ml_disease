@@ -24,7 +24,7 @@ def prepare_symptoms_array(symptoms):
     - X (np.array) = X values ready as input to ML model to get prediction
     '''
     symptoms_array = np.zeros((1,133))
-    df = pd.read_csv('ML-DETECTOR/data/clean_dataset.tsv', sep='\t')
+    df = pd.read_csv('data/clean_dataset.tsv', sep='\t')
     
     for symptom in symptoms:
         symptom_idx = df.columns.get_loc(symptom)
