@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+import toml
 
 
 st.set_page_config(page_title="HDA-AI-Analyzer", page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
@@ -70,6 +71,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Set OpenAI API key
 # Replace with your actual API key
+secrets = toml.load("secrets.toml")
+openai.api_key = secrets["openai"]["api_key"]
 
 
 # Streamlit app title and description
