@@ -1,8 +1,6 @@
 import streamlit as st
 from code.DiseaseModel import DiseaseModel  # Ensure the correct import path
 from code.helper import prepare_symptoms_array  # Ensure the correct import path
-import requests
-from streamlit_lottie import st_lottie
 
 
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -68,50 +66,6 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-
-
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-
-
-
-
-lottie_coding = load_lottieurl("https://lottie.host/e8cca356-1ed3-4d6d-a263-377ffdbfae98/L1n9J2mGso.json")  # replace link to local lottie file
-#Home page
-
-# GitHub: https://github.com/andfanilo/streamlit-lottie
-# Lottie Files: https://lottiefiles.com/
-
-
-# sidebar for navigation
-with st.sidebar:   
-    st_lottie(
-                           lottie_coding,
-                           speed=1,
-                           reverse=False,
-                           loop=True,
-                           quality="low", # medium ; high
-                           height="250px",
-                           width="250px",
-                           key=None,
-                           )
-    
-
-
-code = """
-"https://multiplediseasedetector.streamlit.app/"
-"""
-
-# Display the code in the sidebar using markdown
-st.sidebar.markdown("```python\n{}\n```".format(code))
-
-# Execute the code and display its output in the sidebar
-with st.sidebar:
-    exec(code)
 
 
 
