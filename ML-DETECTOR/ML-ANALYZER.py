@@ -2,7 +2,6 @@ import streamlit as st
 from code.DiseaseModel import DiseaseModel  # Ensure the correct import path
 from code.helper import prepare_symptoms_array  # Ensure the correct import path
 import requests
-from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
 
 st.set_page_config(page_title="HDA-ML-Analyzer", page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
@@ -91,11 +90,6 @@ lottie_coding = load_lottieurl("https://lottie.host/e8cca356-1ed3-4d6d-a263-377f
 
 # sidebar for navigation
 with st.sidebar:   
-    selected = option_menu('',['ML-ANALYZER'],
-                          icons=['person'],
-                          default_index=0,
-                          
-                          )
     st_lottie(
                            lottie_coding,
                            speed=1,
@@ -119,10 +113,6 @@ st.sidebar.markdown("```python\n{}\n```".format(code))
 # Execute the code and display its output in the sidebar
 with st.sidebar:
     exec(code)
-
-
-if (selected == 'ML-ANALYZER'):
-    st.title("")
 
 
 
