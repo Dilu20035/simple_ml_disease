@@ -1,8 +1,7 @@
 import streamlit as st
 from streamlit_chat import message
-import os
-from dotenv import load_dotenv
 import openai
+import toml
 
 st.set_page_config(page_title="HDA-Medical-Chatbot", page_icon=None, layout="centered", initial_sidebar_state="collapsed", menu_items=None)
 
@@ -69,6 +68,9 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+secrets = toml.load("secrets.toml")
+openai.api_key = secrets["openai"]["api_key"]
+
 def get_initial_message():
     messages=[
             {"role": "system", "content": "You are a helpful Medical Diagnostic AI Doctor. Who anwers brief questions about Diseases, Symptomps and medical findings."},
@@ -103,12 +105,6 @@ def display_chat_history():
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
         message(st.session_state["generated"][i], key=str(i))
 
-# Load environment variables
-load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
-
-if (selected == 'MEDICAL-CHATBOT'):
-    st.title("")
 
 st.markdown("<h1 style='text-align: center;'>Medical Chatbot</h1>", unsafe_allow_html=True)
 st.divider()
