@@ -2,6 +2,7 @@ import streamlit as st
 from code.DiseaseModel import DiseaseModel  # Ensure the correct import path
 from code.helper import prepare_symptoms_array  # Ensure the correct import path
 
+
 st.set_page_config(page_title="HDA-ML-Analyzer", page_icon=None, layout="centered", initial_sidebar_state="expanded", menu_items=None)
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
@@ -69,6 +70,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
+
+
 # Create disease class and load ML model
 disease_model = DiseaseModel()
 disease_model.load_xgboost('ML-DETECTOR/model/xgboost_model.json')  # Replace with the correct model path
@@ -95,3 +98,7 @@ if st.button('Predict'):
     precautions = disease_model.predicted_disease_precautions()
     for i in range(4):
         st.write(f'{i+1}. {precautions[i]}')
+
+
+if __name__ == "__main__":
+    main()
