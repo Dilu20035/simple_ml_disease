@@ -1,7 +1,7 @@
 import streamlit as st
 from code.DiseaseModel import DiseaseModel  # Ensure the correct import path
 from code.helper import prepare_symptoms_array  # Ensure the correct import path
-from about import show as show_about
+from aianalyzer import show as show_aianalyzer
 from chatbot import show as show_chatbot
 
 def main():
