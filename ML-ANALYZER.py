@@ -128,8 +128,10 @@ disease_model.load_xgboost('model/xgboost_model.json')  # Replace with the corre
 
 st.title('')
 # Streamlit App Title
+st.markdown("")
 st.markdown("<h1 style='text-align: center;'>Disease Prediction using ML (Machine Learning)</h1>", unsafe_allow_html=True)
-
+st.markdown("<p style='text-align: center;'>Choose the Symptoms That Describe Your Current Condition</p>", unsafe_allow_html=True)
+st.markdown("")
 # Get symptoms from user input
 symptoms = st.multiselect('What are your symptoms?', options=disease_model.all_symptoms)
 
