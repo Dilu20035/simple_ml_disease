@@ -7,8 +7,7 @@ import requests
 
 st.set_page_config(
     page_title="ML-ANALYZER",
-    page_icon=":smiley:",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
