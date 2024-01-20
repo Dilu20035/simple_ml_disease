@@ -20,6 +20,11 @@ st.markdown("""
                 <li class="nav-item active" style="margin-right: 45rem; font-size: 1.2rem;">
                     <a class="nav-link " href="#"><b> ML-Analyzer </b><span class="sr-only">(current)</span></a>
                 </li>
+                <li>
+                    <div>
+                        <button id="closeButton" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
