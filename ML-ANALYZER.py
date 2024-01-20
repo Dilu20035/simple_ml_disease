@@ -14,28 +14,18 @@ st.set_page_config(
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
 st.markdown("""
-    <nav class="navbar fixed-top navbar-expand navbar-dark" style="position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0.4rem; background-color: rgba(76,68,182,00); color: white;">
+    <nav class="navbar fixed-top navbar-expand navbar-dark" style="position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 0.4rem; background-color: rgba(76,68,182); color: white;">
         <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarNav">
             <ul class="navbar-nav ">
                 <li class="nav-item active" style="margin-right: 45rem; font-size: 1.2rem;">
                     <a class="nav-link " href="#"><b> ML-Analyzer </b><span class="sr-only">(current)</span></a>
-                </li>
-                <li>
-                    <div>
-                        <button id="closeButton" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button>
-                    </div>
                 </li>
             </ul>
         </div>
     </nav>
 """, unsafe_allow_html=True)
 
-# Streamlit button with on_click event handler
-close_button = st.button("Close")
 
-# Handle button click
-if close_button:
-    st.markdown("<script>window.history.back();</script>", unsafe_allow_html=True)
 
     
 
@@ -153,3 +143,11 @@ if st.button('Predict'):
     precautions = disease_model.predicted_disease_precautions()
     for i in range(4):
         st.write(f'{i+1}. {precautions[i]}')
+
+
+# Streamlit button with on_click event handler
+close_button = st.button("Close")
+
+# Handle button click
+if close_button:
+    st.markdown("<script>window.history.back();</script>", unsafe_allow_html=True)
