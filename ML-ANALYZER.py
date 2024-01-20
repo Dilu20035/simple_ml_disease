@@ -28,14 +28,18 @@ st.markdown("""
             </ul>
         </div>
     </nav>
-
-    <script>
-        document.getElementById('closeButton').onclick = function() {
-            window.history.back();
-        };
-    </script>
 """, unsafe_allow_html=True)
 
+# JavaScript to handle the button click
+js_script = """
+<script>
+    document.getElementById('closeButton').addEventListener('click', function() {
+        window.history.back();
+    });
+</script>
+"""
+
+st.markdown(js_script, unsafe_allow_html=True)
 
 
     
