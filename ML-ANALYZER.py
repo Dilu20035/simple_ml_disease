@@ -145,12 +145,5 @@ if st.button('Predict'):
         st.write(f'{i+1}. {precautions[i]}')
 
 
-# Use Streamlit's button for a clickable button
-if st.button("Close"):
-    # JavaScript to handle the button click
-    js_script = """
-    <script>
-        window.history.back();
-    </script>
-    """
-    st.markdown(js_script, unsafe_allow_html=True)
+# Inject JavaScript directly into the HTML output
+st.write("<script>document.getElementById('closeButton').addEventListener('click', function() { window.history.back(); });</script>", unsafe_allow_html=True)
