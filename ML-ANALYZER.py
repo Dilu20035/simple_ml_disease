@@ -22,7 +22,7 @@ st.markdown("""
                 </li>
                 <li>
                     <div>
-                        <button id="closeButton" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button>
+                        <button id="closeButton" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; border-radius: 1rem; margin-top: 3px;">Close</button>
                     </div>
                 </li>
             </ul>
@@ -30,17 +30,15 @@ st.markdown("""
     </nav>
 """, unsafe_allow_html=True)
 
-# JavaScript to handle the button click
-js_script = """
-<script>
-    document.getElementById('closeButton').addEventListener('click', function() {
+# Use Streamlit's button for a clickable button
+if st.button("Close"):
+    # JavaScript to handle the button click
+    js_script = """
+    <script>
         window.history.back();
-    });
-</script>
-"""
-
-st.markdown(js_script, unsafe_allow_html=True)
-
+    </script>
+    """
+    st.markdown(js_script, unsafe_allow_html=True)
 
     
 
