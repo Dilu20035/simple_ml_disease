@@ -22,13 +22,18 @@ st.markdown("""
             </li>
             <li>
                 <div>
-                    <a href="https://hdaanalyzer.000webhostapp.com/ml-analyzer.php" target="_self"><button style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button></a>
+                    <button onclick="goBack()" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
 
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 """, unsafe_allow_html=True)
 
