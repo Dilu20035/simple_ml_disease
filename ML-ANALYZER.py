@@ -22,7 +22,7 @@ st.markdown("""
             </li>
             <li>
                 <div>
-                    <button onclick="https://hdaanalyzer.000webhostapp.com/ml-analyzer.php" style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button>
+                    <a href="https://hdaanalyzer.000webhostapp.com/ml-analyzer.php" target="_self"><button style="background-color: #fff; color: #443e85; padding: 0.5rem 1rem; border: none; cursor: pointer; border-radius: 1rem; margin-top: 3px;">Close</button></a>
                 </div>
             </li>
         </ul>
