@@ -145,9 +145,12 @@ if st.button('Predict'):
         st.write(f'{i+1}. {precautions[i]}')
 
 
-# Streamlit button with on_click event handler
-close_button = st.button("Close")
-
-# Handle button click
-if close_button:
-    st.markdown("<script>window.history.back();</script>", unsafe_allow_html=True)
+# Use Streamlit's button for a clickable button
+if st.button("Close"):
+    # JavaScript to handle the button click
+    js_script = """
+    <script>
+        window.history.back();
+    </script>
+    """
+    st.markdown(js_script, unsafe_allow_html=True)
